@@ -1,5 +1,5 @@
 //
-//  budgetAppApp.swift
+//  budgetApp.swift
 //  budgetApp
 //
 //  Created by Jamie Van Schuerbeek on 27/12/2023.
@@ -8,10 +8,12 @@
 import SwiftUI
 
 @main
-struct budgetAppApp: App {
+struct budgetApp: App {
+    @StateObject var expenses = ExpenseList()
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ContentView(expenseList: expenses)
         }
     }
 }
