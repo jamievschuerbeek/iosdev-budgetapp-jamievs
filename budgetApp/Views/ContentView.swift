@@ -9,24 +9,25 @@ import SwiftUI
 
 struct ContentView: View {
     
-    @ObservedObject var expenseList: ExpenseList
+    var expenseList: ExpenseList
     
     var body: some View {
-        VStack {
-            List(expenseList.expenses) {
-                Text($0.title)
-            }
-            .onAppear {
-                Task {
-                    do {
-                        try await expenseList.fetchExpenses()
-                    } catch {
-                        print("Error")
+        
+            TabView {
+                Text("Tab 1")
+                    .tabItem {
+                        Label("All", systemImage: "square.grid.2x2")
                     }
-                }
+                ExpensesView(expenseList: expenseList)
+                    .tabItem {
+                        Label("Expenses", systemImage: "dollarsign")
+                    }
+                Text("Tab 3")
+                    .tabItem {
+                        Label("Income",
+                              systemImage: "dollarsign.square")
+                    }
             }
-        }
-        .padding()
     }
 }
 
