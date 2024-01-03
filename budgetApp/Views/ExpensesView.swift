@@ -13,7 +13,7 @@ struct ExpensesView: View {
     
     var body: some View {
         VStack {
-            Section(header: VStack {
+            Section(header: VStack(alignment: .leading){
                 Text("Expenses")
                     .font(.title2)
                     .fontWeight(.bold)
@@ -28,16 +28,20 @@ struct ExpensesView: View {
                                 NavigationLink(value: expense.id) {
                                     VStack (alignment: .leading) {
                                         Text(expense.title)
-                                        Text("€ \(expense.amount, specifier: "%.2f")")
+                                        HStack{
+                                            Text("€ \(expense.amount, specifier: "%.2f")")
+                                            Spacer()
+                                            Text("\(expense.createdAt.formatted(.dateTime.day().month().year()))")
+                                        }
                                     }
                                 }
                             }
-                            
                         }
                         .onAppear {
                             Task {
                                 do {
                                     try await expenseList.fetchExpenses()
+                                    print(expenseList.expenses)
                                 } catch {
                                     print("Error: \(error)")
                                 }

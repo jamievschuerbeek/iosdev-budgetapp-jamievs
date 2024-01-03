@@ -16,7 +16,6 @@ struct ExpenseModel {
         var id: UUID
         var title: String
         var amount: Float
-        //TODO: Date fixen, wilt op het moment niet decoden
-//        var createdAt: Date
+        var createdAt: Date
     }
 }
