@@ -15,5 +15,8 @@ struct ExpenseModel {
     struct Expense: Identifiable, Codable {
         var id: UUID
         var title: String
+        var amount: Float
+        //TODO: Date fixen, wilt op het moment niet decoden
+//        var createdAt: Date
     }
 }

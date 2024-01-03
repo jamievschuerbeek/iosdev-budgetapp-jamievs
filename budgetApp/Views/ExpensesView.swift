@@ -23,19 +23,27 @@ struct ExpensesView: View {
                 .frame(
                     maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/,
                     alignment: .leading)) {
-                List(expenseList.expenses) {
-                    Text($0.title)
-                }
-                .onAppear {
-                    Task {
-                        do {
-                            try await expenseList.fetchExpenses()
-                        } catch {
-                            print("Error")
+                        List {
+                            ForEach(expenseList.expenses) { expense in
+                                NavigationLink(value: expense.id) {
+                                    VStack (alignment: .leading) {
+                                        Text(expense.title)
+                                        Text("€ \(expense.amount, specifier: "%.2f")")
+                                    }
+                                }
+                            }
+                            
+                        }
+                        .onAppear {
+                            Task {
+                                do {
+                                    try await expenseList.fetchExpenses()
+                                } catch {
+                                    print("Error: \(error)")
+                                }
+                            }
                         }
                     }
-                }
-            }
         }
     }
 }
