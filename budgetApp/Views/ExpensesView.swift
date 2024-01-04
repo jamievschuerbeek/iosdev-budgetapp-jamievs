@@ -13,41 +13,39 @@ struct ExpensesView: View {
     
     var body: some View {
         VStack {
-            Section(header: VStack(alignment: .leading){
-                Text("Expenses")
-                    .font(.title2)
-                    .fontWeight(.bold)
-                Text("Total: $100,00") //TODO: Deze aanpassen naar echt totaal
-            }
+            Section(header: SectionHeader(title:"expenses", total: 100.00) //TODO: totaal veranderen
                 .padding()
                 .frame(
                     maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/,
                     alignment: .leading)) {
-                        List {
-                            ForEach(expenseList.expenses) { expense in
-                                NavigationLink(value: expense.id) {
-                                    VStack (alignment: .leading) {
-                                        Text(expense.title)
-                                        HStack{
-                                            Text("€ \(expense.amount, specifier: "%.2f")")
-                                            Spacer()
-                                            Text("\(expense.createdAt.formatted(.dateTime.day().month().year()))")
-                                        }
-                                    }
-                                }
-                            }
-                        }
+                        list
                         .onAppear {
                             Task {
                                 do {
                                     try await expenseList.fetchExpenses()
-                                    print(expenseList.expenses)
                                 } catch {
                                     print("Error: \(error)")
                                 }
                             }
                         }
                     }
+        }
+    }
+    
+    var list: some View {
+        List {
+            ForEach(expenseList.expenses) { expense in
+                NavigationLink(value: expense.id) {
+                    VStack (alignment: .leading) {
+                        Text(expense.title).font(.headline).fontWeight(.bold)
+                        HStack{
+                            Text("€ \(expense.amount, specifier: "%.2f")")
+                            Spacer()
+                            Text("\(expense.createdAt.formatted(.dateTime.day().month().year()))")
+                        }
+                    }
+                }
+            }
         }
     }
 }

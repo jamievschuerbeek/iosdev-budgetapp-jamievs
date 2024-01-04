@@ -18,6 +18,7 @@
 		3C6EF8A02B40F09F002B5CB1 /* ExpenseList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C6EF89F2B40F09F002B5CB1 /* ExpenseList.swift */; };
 		3C6EF8A32B40F261002B5CB1 /* HttpClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C6EF8A22B40F261002B5CB1 /* HttpClient.swift */; };
 		3C6EF8A52B4586B2002B5CB1 /* ExpensesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C6EF8A42B4586B2002B5CB1 /* ExpensesView.swift */; };
+		3CAF2C822B46395700247984 /* SectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CAF2C812B46395700247984 /* SectionHeader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +53,7 @@
 		3C6EF89F2B40F09F002B5CB1 /* ExpenseList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseList.swift; sourceTree = "<group>"; };
 		3C6EF8A22B40F261002B5CB1 /* HttpClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpClient.swift; sourceTree = "<group>"; };
 		3C6EF8A42B4586B2002B5CB1 /* ExpensesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpensesView.swift; sourceTree = "<group>"; };
+		3CAF2C812B46395700247984 /* SectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionHeader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,6 +161,7 @@
 			children = (
 				3C6EF8722B3BA9E1002B5CB1 /* ContentView.swift */,
 				3C6EF8A42B4586B2002B5CB1 /* ExpensesView.swift */,
+				3CAF2C812B46395700247984 /* SectionHeader.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -304,6 +307,7 @@
 				3C6EF8A32B40F261002B5CB1 /* HttpClient.swift in Sources */,
 				3C6EF8A52B4586B2002B5CB1 /* ExpensesView.swift in Sources */,
 				3C6EF8A02B40F09F002B5CB1 /* ExpenseList.swift in Sources */,
+				3CAF2C822B46395700247984 /* SectionHeader.swift in Sources */,
 				3C6EF89E2B40EF7A002B5CB1 /* ExpenseModel.swift in Sources */,
 				3C6EF8732B3BA9E1002B5CB1 /* ContentView.swift in Sources */,
 				3C6EF8712B3BA9E1002B5CB1 /* budgetApp.swift in Sources */,

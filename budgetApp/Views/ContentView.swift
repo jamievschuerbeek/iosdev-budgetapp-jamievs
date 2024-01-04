@@ -20,12 +20,12 @@ struct ContentView: View {
                     }
                 ExpensesView(expenseList: expenseList)
                     .tabItem {
-                        Label("Expenses", systemImage: "dollarsign")
+                        Label("Expenses", systemImage: "eurosign")
                     }
                 Text("Tab 3")
                     .tabItem {
                         Label("Income",
-                              systemImage: "dollarsign.square")
+                              systemImage: "eurosign.square")
                     }
             }
     }

@@ -15,7 +15,9 @@ class ExpenseList : ObservableObject {
     }
     
     func fetchExpenses() async throws {
-        let urlString = "https://a21f-2a02-1811-cc1f-2300-1952-8069-d7ba-31ca.ngrok-free.app/expenses"
+        let dataUrl = "https://f4c9-2a02-1811-cc1f-2300-b9dc-4810-9d6b-f346.ngrok-free.app"
+        let urlString = "\(dataUrl)/expenses"
+        
         
         guard let url = URL(string: urlString) else {
             throw HttpError.badURL
