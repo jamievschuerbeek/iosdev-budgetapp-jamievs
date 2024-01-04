@@ -29,7 +29,10 @@ struct SectionHeader: View {
                     }
                 }
             }
-        }
+        }.padding()
+            .frame(
+                maxWidth: .infinity,
+                alignment: .leading)
     }
 }
 

@@ -21,6 +21,8 @@
 		3CAF2C822B46395700247984 /* SectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CAF2C812B46395700247984 /* SectionHeader.swift */; };
 		3CAF2C842B46F3AB00247984 /* IncomeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CAF2C832B46F3AB00247984 /* IncomeModel.swift */; };
 		3CAF2C862B46FC9A00247984 /* fetchObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CAF2C852B46FC9A00247984 /* fetchObject.swift */; };
+		3CAF2C882B46FF9800247984 /* IncomesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CAF2C872B46FF9800247984 /* IncomesView.swift */; };
+		3CAF2C8A2B47028000247984 /* YearMonthCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CAF2C892B47028000247984 /* YearMonthCalendarView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +60,8 @@
 		3CAF2C812B46395700247984 /* SectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionHeader.swift; sourceTree = "<group>"; };
 		3CAF2C832B46F3AB00247984 /* IncomeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncomeModel.swift; sourceTree = "<group>"; };
 		3CAF2C852B46FC9A00247984 /* fetchObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = fetchObject.swift; sourceTree = "<group>"; };
+		3CAF2C872B46FF9800247984 /* IncomesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncomesView.swift; sourceTree = "<group>"; };
+		3CAF2C892B47028000247984 /* YearMonthCalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YearMonthCalendarView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -167,6 +171,8 @@
 				3C6EF8722B3BA9E1002B5CB1 /* ContentView.swift */,
 				3C6EF8A42B4586B2002B5CB1 /* ExpensesView.swift */,
 				3CAF2C812B46395700247984 /* SectionHeader.swift */,
+				3CAF2C872B46FF9800247984 /* IncomesView.swift */,
+				3CAF2C892B47028000247984 /* YearMonthCalendarView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -311,9 +317,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				3CAF2C842B46F3AB00247984 /* IncomeModel.swift in Sources */,
+				3CAF2C882B46FF9800247984 /* IncomesView.swift in Sources */,
 				3C6EF8A32B40F261002B5CB1 /* HttpClient.swift in Sources */,
 				3C6EF8A52B4586B2002B5CB1 /* ExpensesView.swift in Sources */,
 				3C6EF8A02B40F09F002B5CB1 /* ExpenseList.swift in Sources */,
+				3CAF2C8A2B47028000247984 /* YearMonthCalendarView.swift in Sources */,
 				3CAF2C862B46FC9A00247984 /* fetchObject.swift in Sources */,
 				3CAF2C822B46395700247984 /* SectionHeader.swift in Sources */,
 				3C6EF89E2B40EF7A002B5CB1 /* ExpenseModel.swift in Sources */,
