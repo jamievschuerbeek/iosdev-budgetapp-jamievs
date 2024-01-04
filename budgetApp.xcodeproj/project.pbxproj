@@ -19,6 +19,8 @@
 		3C6EF8A32B40F261002B5CB1 /* HttpClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C6EF8A22B40F261002B5CB1 /* HttpClient.swift */; };
 		3C6EF8A52B4586B2002B5CB1 /* ExpensesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C6EF8A42B4586B2002B5CB1 /* ExpensesView.swift */; };
 		3CAF2C822B46395700247984 /* SectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CAF2C812B46395700247984 /* SectionHeader.swift */; };
+		3CAF2C842B46F3AB00247984 /* IncomeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CAF2C832B46F3AB00247984 /* IncomeModel.swift */; };
+		3CAF2C862B46FC9A00247984 /* fetchObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CAF2C852B46FC9A00247984 /* fetchObject.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +56,8 @@
 		3C6EF8A22B40F261002B5CB1 /* HttpClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpClient.swift; sourceTree = "<group>"; };
 		3C6EF8A42B4586B2002B5CB1 /* ExpensesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpensesView.swift; sourceTree = "<group>"; };
 		3CAF2C812B46395700247984 /* SectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionHeader.swift; sourceTree = "<group>"; };
+		3CAF2C832B46F3AB00247984 /* IncomeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncomeModel.swift; sourceTree = "<group>"; };
+		3CAF2C852B46FC9A00247984 /* fetchObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = fetchObject.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,6 +148,7 @@
 			isa = PBXGroup;
 			children = (
 				3C6EF89D2B40EF7A002B5CB1 /* ExpenseModel.swift */,
+				3CAF2C832B46F3AB00247984 /* IncomeModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -170,6 +175,7 @@
 			isa = PBXGroup;
 			children = (
 				3C6EF8A22B40F261002B5CB1 /* HttpClient.swift */,
+				3CAF2C852B46FC9A00247984 /* fetchObject.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -304,9 +310,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3CAF2C842B46F3AB00247984 /* IncomeModel.swift in Sources */,
 				3C6EF8A32B40F261002B5CB1 /* HttpClient.swift in Sources */,
 				3C6EF8A52B4586B2002B5CB1 /* ExpensesView.swift in Sources */,
 				3C6EF8A02B40F09F002B5CB1 /* ExpenseList.swift in Sources */,
+				3CAF2C862B46FC9A00247984 /* fetchObject.swift in Sources */,
 				3CAF2C822B46395700247984 /* SectionHeader.swift in Sources */,
 				3C6EF89E2B40EF7A002B5CB1 /* ExpenseModel.swift in Sources */,
 				3C6EF8732B3BA9E1002B5CB1 /* ContentView.swift in Sources */,

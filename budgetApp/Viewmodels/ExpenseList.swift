@@ -15,15 +15,8 @@ class ExpenseList : ObservableObject {
     }
     
     func fetchExpenses() async throws {
-        let dataUrl = "https://f4c9-2a02-1811-cc1f-2300-b9dc-4810-9d6b-f346.ngrok-free.app"
-        let urlString = "\(dataUrl)/expenses"
         
-        
-        guard let url = URL(string: urlString) else {
-            throw HttpError.badURL
-        }
-        
-        let response: [ExpenseModel.Expense] = try await HttpClient.shared.fetch(url: url)
+        let response: [ExpenseModel.Expense] = try await fetchObject(urlPath: "expenses")
         
         DispatchQueue.main.async {
             self.expenseModel.expenses = response
