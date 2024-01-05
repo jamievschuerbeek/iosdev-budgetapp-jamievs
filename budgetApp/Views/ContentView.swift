@@ -10,6 +10,7 @@ import SwiftUI
 struct ContentView: View {
     
     var expenseList: ExpenseList
+    var IncomeList: IncomeList
     
     var body: some View {
         
@@ -22,7 +23,7 @@ struct ContentView: View {
                     .tabItem {
                         Label("Expenses", systemImage: "eurosign")
                     }
-                Text("Tab 3")
+                IncomesView(incomeList: IncomeList)
                     .tabItem {
                         Label("Income",
                               systemImage: "eurosign.square")
@@ -32,5 +33,5 @@ struct ContentView: View {
 }
 
 #Preview {
-    ContentView(expenseList: ExpenseList())
+    ContentView(expenseList: ExpenseList(), IncomeList: IncomeList())
 }

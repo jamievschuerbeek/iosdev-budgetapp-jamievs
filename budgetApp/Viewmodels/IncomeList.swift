@@ -14,7 +14,7 @@ class IncomeList : ObservableObject {
         return incomeModel.incomes
     }
     
-    func getTotal() -> Float {
+    var getTotal: Float {
         var total: Float = 0
         for income in incomes {
             total += income.amount

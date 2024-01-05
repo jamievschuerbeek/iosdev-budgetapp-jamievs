@@ -18,7 +18,7 @@ struct SectionHeader<T: ObservableObject>: View {
             return templist!.getTotal
         }
         else {
-            let templist = objectList as? ExpenseList
+            let templist = objectList as? IncomeList
             return templist!.getTotal
         }
     }

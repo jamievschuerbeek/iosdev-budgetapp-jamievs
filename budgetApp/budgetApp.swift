@@ -10,10 +10,11 @@ import SwiftUI
 @main
 struct budgetApp: App {
     @StateObject var expenses = ExpenseList()
+    @StateObject var incomes = IncomeList()
     
     var body: some Scene {
         WindowGroup {
-            ContentView(expenseList: expenses)
+            ContentView(expenseList: expenses, IncomeList: incomes)
         }
     }
 }

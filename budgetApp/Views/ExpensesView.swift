@@ -13,7 +13,7 @@ struct ExpensesView: View {
     
     var body: some View {
         VStack {
-            Section(header: SectionHeader(title:"expenses", objectList: expenseList))
+            Section(header: SectionHeader(title:"Expenses", objectList: expenseList))
             {
                 list
             }
