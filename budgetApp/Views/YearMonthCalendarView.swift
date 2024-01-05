@@ -14,26 +14,45 @@ struct YearMonthCalendarView: View {
     @State var currentMonth = Date().formatted(.dateTime.month())
     @State var months = DateFormatter().shortMonthSymbols ?? []
     
-    init(){
-        print(months)
-    }
+    @StateObject var expenseList: ExpenseList
+    
     var body: some View {
         HStack {
             Picker("", selection: $monthSelection) {
                 ForEach(0 ..< months.count, id: \.self){ value in
-                    Text(months[value])
+                    Text(months[value]).tag(months[value])
                 }
-            }
+            }.onChange(of: monthSelection, {
+                Task {
+                    try await fetch()
+                }
+            })
             //SOURCE: https://stackoverflow.com/questions/64093723/swiftui-date-picker-display-year-only
             Picker("", selection: $selection) {
                 ForEach(2023...currentYear, id: \.self) {
                     Text(String($0))
                 }
+            }.onChange(of: selection, {
+                Task {
+                    try await fetch()
+                }
+            })
+        }.onAppear {
+            Task {
+                do {
+                    try await fetch()
+                } catch {
+                    print("Error: \(error)")
+                }
             }
         }
+    }
+    
+    func fetch() async throws{
+        try await expenseList.fetchExpensesWithDate(year: selection, month: monthSelection)
     }
 }
 
 #Preview {
-    YearMonthCalendarView()
+    YearMonthCalendarView(expenseList: ExpenseList())
 }

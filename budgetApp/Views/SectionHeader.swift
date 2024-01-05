@@ -12,6 +12,8 @@ struct SectionHeader: View {
     var title: String
     var total: Float
     
+    @StateObject var expenseList: ExpenseList
+    
     var body: some View {
         VStack(alignment: .leading){
             Text(title)
@@ -29,6 +31,7 @@ struct SectionHeader: View {
                     }
                 }
             }
+            YearMonthCalendarView(expenseList: expenseList)
         }.padding()
             .frame(
                 maxWidth: .infinity,
@@ -37,5 +40,5 @@ struct SectionHeader: View {
 }
 
 #Preview {
-    SectionHeader(title:"test", total: 100.00)
+    SectionHeader(title:"test", total: 100.00, expenseList: ExpenseList())
 }

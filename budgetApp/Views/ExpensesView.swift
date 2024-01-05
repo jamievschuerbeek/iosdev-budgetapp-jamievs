@@ -13,19 +13,10 @@ struct ExpensesView: View {
     
     var body: some View {
         VStack {
-            Section(header: SectionHeader(title:"expenses", total: 100.00))//TODO: totaal veranderen
+            Section(header: SectionHeader(title:"expenses", total: 100.00, expenseList: expenseList))//TODO: totaal veranderen
             {
-                        list
-                        .onAppear {
-                            Task {
-                                do {
-                                    try await expenseList.fetchExpenses()
-                                } catch {
-                                    print("Error: \(error)")
-                                }
-                            }
-                        }
-                    }
+                list
+            }
         }
     }
     

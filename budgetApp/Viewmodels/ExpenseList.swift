@@ -14,9 +14,18 @@ class ExpenseList : ObservableObject {
         return expenseModel.expenses
     }
     
+    //TODO: Deze niet meer gebruiken, vervangen door fetchExpensesWithDate
     func fetchExpenses() async throws {
         
         let response: [ExpenseModel.Expense] = try await fetchObject(urlPath: "expenses")
+        
+        DispatchQueue.main.async {
+            self.expenseModel.expenses = response
+        }
+    }
+    
+    func fetchExpensesWithDate(year: Int, month: String) async throws {
+        let response: [ExpenseModel.Expense] = try await fetchObjectWithDate(urlPath: "expenses", year: year, month: month)
         
         DispatchQueue.main.async {
             self.expenseModel.expenses = response
