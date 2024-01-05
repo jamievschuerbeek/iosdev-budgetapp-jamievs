@@ -13,7 +13,7 @@ struct ExpensesView: View {
     
     var body: some View {
         VStack {
-            Section(header: SectionHeader(title:"expenses", total: 100.00, expenseList: expenseList))//TODO: totaal veranderen
+            Section(header: SectionHeader(title:"expenses", expenseList: expenseList))//TODO: totaal veranderen
             {
                 list
             }

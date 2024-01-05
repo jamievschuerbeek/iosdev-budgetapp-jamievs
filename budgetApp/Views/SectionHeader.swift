@@ -10,7 +10,6 @@ import SwiftUI
 struct SectionHeader: View {
     
     var title: String
-    var total: Float
     
     @StateObject var expenseList: ExpenseList
     
@@ -20,7 +19,7 @@ struct SectionHeader: View {
                 .font(.title2)
                 .fontWeight(.bold)
             HStack {
-                Text("Total: € \(total, specifier: "%.2f")") //TODO: Deze aanpassen naar echt totaal
+                Text("Total: € \(expenseList.getTotal, specifier: "%.2f")") //TODO: Deze aanpassen naar echt totaal
                 Spacer()
                 Menu ("add", systemImage: "plus"){
                     Button("Add expense", systemImage: "eurosign") {
@@ -40,5 +39,5 @@ struct SectionHeader: View {
 }
 
 #Preview {
-    SectionHeader(title:"test", total: 100.00, expenseList: ExpenseList())
+    SectionHeader(title:"test", expenseList: ExpenseList())
 }

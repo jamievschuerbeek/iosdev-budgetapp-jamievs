@@ -14,9 +14,16 @@ class ExpenseList : ObservableObject {
         return expenseModel.expenses
     }
     
+    var getTotal: Float {
+        var total: Float = 0
+        for expense in expenses {
+            total += expense.amount
+        }
+        return total
+    }
+    
     //TODO: Deze niet meer gebruiken, vervangen door fetchExpensesWithDate
     func fetchExpenses() async throws {
-        
         let response: [ExpenseModel.Expense] = try await fetchObject(urlPath: "expenses")
         
         DispatchQueue.main.async {

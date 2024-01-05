@@ -23,6 +23,7 @@
 		3CAF2C862B46FC9A00247984 /* fetchObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CAF2C852B46FC9A00247984 /* fetchObject.swift */; };
 		3CAF2C882B46FF9800247984 /* IncomesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CAF2C872B46FF9800247984 /* IncomesView.swift */; };
 		3CAF2C8A2B47028000247984 /* YearMonthCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CAF2C892B47028000247984 /* YearMonthCalendarView.swift */; };
+		3CAF2C8C2B47873100247984 /* IncomeList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CAF2C8B2B47873100247984 /* IncomeList.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +63,7 @@
 		3CAF2C852B46FC9A00247984 /* fetchObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = fetchObject.swift; sourceTree = "<group>"; };
 		3CAF2C872B46FF9800247984 /* IncomesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncomesView.swift; sourceTree = "<group>"; };
 		3CAF2C892B47028000247984 /* YearMonthCalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YearMonthCalendarView.swift; sourceTree = "<group>"; };
+		3CAF2C8B2B47873100247984 /* IncomeList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncomeList.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -161,6 +163,7 @@
 			isa = PBXGroup;
 			children = (
 				3C6EF89F2B40F09F002B5CB1 /* ExpenseList.swift */,
+				3CAF2C8B2B47873100247984 /* IncomeList.swift */,
 			);
 			path = Viewmodels;
 			sourceTree = "<group>";
@@ -318,6 +321,7 @@
 			files = (
 				3CAF2C842B46F3AB00247984 /* IncomeModel.swift in Sources */,
 				3CAF2C882B46FF9800247984 /* IncomesView.swift in Sources */,
+				3CAF2C8C2B47873100247984 /* IncomeList.swift in Sources */,
 				3C6EF8A32B40F261002B5CB1 /* HttpClient.swift in Sources */,
 				3C6EF8A52B4586B2002B5CB1 /* ExpensesView.swift in Sources */,
 				3C6EF8A02B40F09F002B5CB1 /* ExpenseList.swift in Sources */,
