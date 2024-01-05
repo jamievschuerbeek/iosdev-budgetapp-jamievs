@@ -7,14 +7,14 @@
 
 import SwiftUI
 
-struct YearMonthCalendarView: View {
+struct YearMonthCalendarView<T: ObservableObject>: View {
     @State var selection: Int = Int(Date().formatted(.dateTime.year())) ?? 0
     @State var monthSelection: String = Date().formatted(.dateTime.month(.abbreviated))
     @State var currentYear = Int(Date().formatted(.dateTime.year())) ?? 0
     @State var currentMonth = Date().formatted(.dateTime.month())
     @State var months = DateFormatter().shortMonthSymbols ?? []
     
-    @StateObject var expenseList: ExpenseList
+    @StateObject var objectList: T
     
     var body: some View {
         HStack {
@@ -49,10 +49,20 @@ struct YearMonthCalendarView: View {
     }
     
     func fetch() async throws{
-        try await expenseList.fetchExpensesWithDate(year: selection, month: monthSelection)
+        //kijken of object expense list is
+        if objectList is ExpenseList {
+            let expenseList = objectList as? ExpenseList
+            try await expenseList?.fetchExpensesWithDate(year: selection, month: monthSelection)
+        }
+        //gaan er van uit dat het incomes zijn
+        //TODO: aanpassen als er meer viewmodels zouden zijn
+        else {
+            let incomeList = objectList as? IncomeList
+            try await incomeList?.fetchIncomesWithDate(year: selection, month: monthSelection)
+        }
     }
 }
 
 #Preview {
-    YearMonthCalendarView(expenseList: ExpenseList())
+    YearMonthCalendarView(objectList: ExpenseList())
 }

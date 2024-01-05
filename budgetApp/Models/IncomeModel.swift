@@ -11,7 +11,6 @@ struct IncomeModel {
     
     var incomes: [Income]
     
-    
     struct Income: Identifiable, Codable {
         var id: UUID
         var title: String

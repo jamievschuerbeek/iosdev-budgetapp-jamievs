@@ -11,7 +11,6 @@ struct ExpenseModel {
     
     var expenses: [Expense]
     
-    
     struct Expense: Identifiable, Codable {
         var id: UUID
         var title: String

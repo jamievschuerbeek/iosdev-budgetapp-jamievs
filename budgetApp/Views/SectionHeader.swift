@@ -7,11 +7,21 @@
 
 import SwiftUI
 
-struct SectionHeader: View {
+struct SectionHeader<T: ObservableObject>: View {
     
     var title: String
     
-    @StateObject var expenseList: ExpenseList
+    @StateObject var objectList: T
+    var total: Float {
+        if objectList is ExpenseList {
+            let templist = objectList as? ExpenseList
+            return templist!.getTotal
+        }
+        else {
+            let templist = objectList as? ExpenseList
+            return templist!.getTotal
+        }
+    }
     
     var body: some View {
         VStack(alignment: .leading){
@@ -19,9 +29,9 @@ struct SectionHeader: View {
                 .font(.title2)
                 .fontWeight(.bold)
             HStack {
-                Text("Total: € \(expenseList.getTotal, specifier: "%.2f")") //TODO: Deze aanpassen naar echt totaal
+                Text("Total: € \(total, specifier: "%.2f")") //TODO: Deze aanpassen naar echt totaal
                 Spacer()
-                Menu ("add", systemImage: "plus"){
+                Menu("add", systemImage: "plus"){
                     Button("Add expense", systemImage: "eurosign") {
                         print("test1")
                     }
@@ -30,7 +40,7 @@ struct SectionHeader: View {
                     }
                 }
             }
-            YearMonthCalendarView(expenseList: expenseList)
+            YearMonthCalendarView(objectList: objectList)
         }.padding()
             .frame(
                 maxWidth: .infinity,
@@ -39,5 +49,5 @@ struct SectionHeader: View {
 }
 
 #Preview {
-    SectionHeader(title:"test", expenseList: ExpenseList())
+    SectionHeader(title:"test", objectList: ExpenseList())
 }
