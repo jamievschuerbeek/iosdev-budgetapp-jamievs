@@ -22,14 +22,16 @@ struct ExpensesView: View {
     
     var list: some View {
         List {
-            ForEach(expenseList.expenses) { expense in
-                NavigationLink(value: expense.id) {
-                    VStack (alignment: .leading) {
-                        Text(expense.title).font(.headline).fontWeight(.bold)
-                        HStack{
-                            Text("€ -\(expense.amount, specifier: "%.2f")")
-                            Spacer()
-                            Text("\(expense.createdAt.formatted(.dateTime.day().month().year()))")
+            ScrollView {
+                ForEach(expenseList.expenses) { expense in
+                    NavigationLink(value: expense.id) {
+                        VStack (alignment: .leading) {
+                            Text(expense.title).font(.headline).fontWeight(.bold)
+                            HStack{
+                                Text("€ -\(expense.amount, specifier: "%.2f")")
+                                Spacer()
+                                Text("\(expense.createdAt.formatted(.dateTime.day().month().year()))")
+                            }
                         }
                     }
                 }

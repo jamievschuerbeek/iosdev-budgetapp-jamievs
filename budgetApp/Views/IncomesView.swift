@@ -21,14 +21,16 @@ struct IncomesView: View {
     
     var list: some View {
         List {
-            ForEach(incomeList.incomes) { income in
-                NavigationLink(value: income.id) {
-                    VStack (alignment: .leading) {
-                        Text(income.title).font(.headline).fontWeight(.bold)
-                        HStack{
-                            Text("€ +\(income.amount, specifier: "%.2f")")
-                            Spacer()
-                            Text("\(income.createdAt.formatted(.dateTime.day().month().year()))")
+            ScrollView {
+                ForEach(incomeList.incomes) { income in
+                    NavigationLink(value: income.id) {
+                        VStack (alignment: .leading) {
+                            Text(income.title).font(.headline).fontWeight(.bold)
+                            HStack{
+                                Text("€ +\(income.amount, specifier: "%.2f")")
+                                Spacer()
+                                Text("\(income.createdAt.formatted(.dateTime.day().month().year()))")
+                            }
                         }
                     }
                 }

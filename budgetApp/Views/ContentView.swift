@@ -10,12 +10,24 @@ import SwiftUI
 struct ContentView: View {
     
     var expenseList: ExpenseList
-    var IncomeList: IncomeList
+    var incomeList: IncomeList
+    var overViewList: OverViewList
     
     var body: some View {
-        
+        VStack {
+            HStack {
+                Spacer()
+                Menu("add", systemImage: "plus"){
+                    Button("Add expense", systemImage: "eurosign") {
+                        print("test1")
+                    }
+                    Button("Add income", systemImage: "eurosign.square"){
+                        print("test2")
+                    }
+                }
+            }.padding()
             TabView {
-                Text("Tab 1")
+                OverViewListView(overViewList: overViewList)
                     .tabItem {
                         Label("All", systemImage: "square.grid.2x2")
                     }
@@ -23,15 +35,16 @@ struct ContentView: View {
                     .tabItem {
                         Label("Expenses", systemImage: "eurosign")
                     }
-                IncomesView(incomeList: IncomeList)
+                IncomesView(incomeList: incomeList)
                     .tabItem {
                         Label("Income",
                               systemImage: "eurosign.square")
                     }
             }
+        }
     }
 }
 
 #Preview {
-    ContentView(expenseList: ExpenseList(), IncomeList: IncomeList())
+    ContentView(expenseList: ExpenseList(), incomeList: IncomeList(), overViewList: OverViewList())
 }

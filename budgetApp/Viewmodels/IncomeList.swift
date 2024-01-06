@@ -28,4 +28,5 @@ class IncomeList : ObservableObject {
         DispatchQueue.main.async {
             self.incomeModel.incomes = response
         }
-    }}
+    }
+}

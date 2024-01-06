@@ -15,6 +15,10 @@ struct SectionHeader<T: ObservableObject>: View {
     var total: Float {
         if objectList is ExpenseList {
             let templist = objectList as? ExpenseList
+            return -templist!.getTotal
+        }
+        else if objectList is OverViewList {
+            let templist = objectList as? OverViewList
             return templist!.getTotal
         }
         else {
@@ -29,16 +33,8 @@ struct SectionHeader<T: ObservableObject>: View {
                 .font(.title2)
                 .fontWeight(.bold)
             HStack {
-                Text("Total: € \(total, specifier: "%.2f")") //TODO: Deze aanpassen naar echt totaal
-                Spacer()
-                Menu("add", systemImage: "plus"){
-                    Button("Add expense", systemImage: "eurosign") {
-                        print("test1")
-                    }
-                    Button("Add income", systemImage: "eurosign.square"){
-                        print("test2")
-                    }
-                }
+                Text("Total:")
+                Text("€\(total, specifier: "%.2f")").foregroundStyle(total < 0 ? .red : .green)
             }
             YearMonthCalendarView(objectList: objectList)
         }.padding()

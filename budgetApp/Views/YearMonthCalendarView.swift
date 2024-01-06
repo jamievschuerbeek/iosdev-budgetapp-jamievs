@@ -54,6 +54,10 @@ struct YearMonthCalendarView<T: ObservableObject>: View {
             let expenseList = objectList as? ExpenseList
             try await expenseList?.fetchExpensesWithDate(year: selection, month: monthSelection)
         }
+        else if objectList is OverViewList {
+            let overviewList = objectList as? OverViewList
+            try await overviewList?.fetchOverViewWithDate(year: selection, month: monthSelection)
+        }
         //gaan er van uit dat het incomes zijn
         //TODO: aanpassen als er meer viewmodels zouden zijn
         else {
