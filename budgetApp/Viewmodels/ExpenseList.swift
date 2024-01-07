@@ -11,7 +11,14 @@ class ExpenseList : ObservableObject {
     @Published var expenseModel = ExpenseModel(expenses: [])
     
     var expenses: Array<ExpenseModel.Expense> {
-        return expenseModel.expenses
+        get {
+            return expenseModel.expenses
+        }
+        set{
+            if !newValue.isEmpty {
+                expenseModel.expenses = newValue
+            }
+        }
     }
     
     var getTotal: Float {

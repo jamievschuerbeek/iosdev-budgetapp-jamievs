@@ -24,7 +24,7 @@ struct ExpensesView: View {
         List {
             ScrollView {
                 ForEach(expenseList.expenses) { expense in
-                    NavigationLink(value: expense.id) {
+                    NavigationLink(value: expense) {
                         VStack (alignment: .leading) {
                             Text(expense.title).font(.headline).fontWeight(.bold)
                             HStack{

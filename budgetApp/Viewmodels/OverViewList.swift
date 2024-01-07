@@ -12,11 +12,26 @@ class OverViewList : ObservableObject {
     @Published var expenseModel = ExpenseModel(expenses: [])
     
     var incomes: Array<IncomeModel.Income> {
-        return incomeModel.incomes
+        get {
+            return incomeModel.incomes
+        }
+        set {
+            if !newValue.isEmpty {
+                incomeModel.incomes = newValue
+                objectWillChange.send()
+            }
+        }
     }
     
     var expenses: Array<ExpenseModel.Expense> {
-        return expenseModel.expenses
+        get {
+            return expenseModel.expenses
+        }
+        set{
+            if !newValue.isEmpty {
+                expenseModel.expenses = newValue
+            }
+        }
     }
     
     var getTotal: Float {

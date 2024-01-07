@@ -8,10 +8,20 @@
 import SwiftUI
 
 class IncomeList : ObservableObject {
+    typealias Income = IncomeModel.Income
+    
     @Published var incomeModel = IncomeModel(incomes: [])
     
-    var incomes: Array<IncomeModel.Income> {
-        return incomeModel.incomes
+    var incomes: Array<Income> {
+        get {
+            return incomeModel.incomes
+        }
+        set {
+            if !newValue.isEmpty {
+                incomeModel.incomes = newValue
+                objectWillChange.send()
+            }
+        }
     }
     
     var getTotal: Float {
@@ -22,8 +32,18 @@ class IncomeList : ObservableObject {
         return total
     }
     
+    func delete(atOffset: IndexSet){
+        print(atOffset)
+        //Incomes.remove(atOffsets: atOffset)
+    }
+    
+    func fetchSingleIcome(id: UUID) async throws -> Income{
+        let response: Income = try await fetchSingleObject(urlPath: "incomes", id: id)
+        return response
+    }
+    
     func fetchIncomesWithDate(year: Int, month: String) async throws {
-        let response: [IncomeModel.Income] = try await fetchObjectWithDate(urlPath: "incomes", year: year, month: month)
+        let response: [Income] = try await fetchObjectWithDate(urlPath: "incomes", year: year, month: month)
         
         DispatchQueue.main.async {
             self.incomeModel.incomes = response

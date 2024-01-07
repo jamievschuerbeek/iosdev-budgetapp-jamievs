@@ -55,6 +55,31 @@ class HttpClient {
         return object
     }
     
+    //Zelfde als andere fetch maar voor single items
+    func fetchSingle<T:Codable>(url: URL) async throws -> T {
+        let (data, response) = try await URLSession.shared.data(from: url)
+        
+        guard (response as? HTTPURLResponse)?.statusCode == 200 else {
+            throw HttpError.badResponse
+        }
+        
+        //geeft anders problemen met dates decoderen
+        let decoder = JSONDecoder()
+        decoder.dateDecodingStrategy = .iso8601
+        
+        //TODO: Delete in prod - is er voor debug in case dat decoden zou failen
+        do {
+            try decoder.decode(T.self, from: data)
+        } catch {
+            print("E: \(error)")
+        }
+        
+        guard let object = try? decoder.decode(T.self, from: data) else {
+            throw HttpError.errorDecodingData
+        }
+        return object
+    }
+    
     func sendData<T: Codable>(to url: URL, object: T, httpMethod: String) async throws {
         var request = URLRequest(url: url)
         

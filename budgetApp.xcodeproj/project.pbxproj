@@ -27,6 +27,8 @@
 		3CAF2C8E2B487FDA00247984 /* OverViewList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CAF2C8D2B487FD900247984 /* OverViewList.swift */; };
 		3CAF2C902B4881C300247984 /* OverViewListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CAF2C8F2B4881C300247984 /* OverViewListView.swift */; };
 		3CAF2C922B49D22D00247984 /* CreateForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CAF2C912B49D22D00247984 /* CreateForm.swift */; };
+		3CAF2C942B4AAC8600247984 /* CurrencyField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CAF2C932B4AAC8600247984 /* CurrencyField.swift */; };
+		3CAF2C962B4ABD6500247984 /* TransactionDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CAF2C952B4ABD6500247984 /* TransactionDetailsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +72,8 @@
 		3CAF2C8D2B487FD900247984 /* OverViewList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverViewList.swift; sourceTree = "<group>"; };
 		3CAF2C8F2B4881C300247984 /* OverViewListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverViewListView.swift; sourceTree = "<group>"; };
 		3CAF2C912B49D22D00247984 /* CreateForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateForm.swift; sourceTree = "<group>"; };
+		3CAF2C932B4AAC8600247984 /* CurrencyField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyField.swift; sourceTree = "<group>"; };
+		3CAF2C952B4ABD6500247984 /* TransactionDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionDetailsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -181,10 +185,12 @@
 				3C6EF8722B3BA9E1002B5CB1 /* ContentView.swift */,
 				3C6EF8A42B4586B2002B5CB1 /* ExpensesView.swift */,
 				3CAF2C812B46395700247984 /* SectionHeader.swift */,
+				3CAF2C952B4ABD6500247984 /* TransactionDetailsView.swift */,
 				3CAF2C872B46FF9800247984 /* IncomesView.swift */,
 				3CAF2C8F2B4881C300247984 /* OverViewListView.swift */,
 				3CAF2C892B47028000247984 /* YearMonthCalendarView.swift */,
 				3CAF2C912B49D22D00247984 /* CreateForm.swift */,
+				3CAF2C932B4AAC8600247984 /* CurrencyField.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -341,6 +347,8 @@
 				3CAF2C862B46FC9A00247984 /* fetchObject.swift in Sources */,
 				3CAF2C822B46395700247984 /* SectionHeader.swift in Sources */,
 				3C6EF89E2B40EF7A002B5CB1 /* ExpenseModel.swift in Sources */,
+				3CAF2C942B4AAC8600247984 /* CurrencyField.swift in Sources */,
+				3CAF2C962B4ABD6500247984 /* TransactionDetailsView.swift in Sources */,
 				3C6EF8732B3BA9E1002B5CB1 /* ContentView.swift in Sources */,
 				3C6EF8712B3BA9E1002B5CB1 /* budgetApp.swift in Sources */,
 			);

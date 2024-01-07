@@ -27,7 +27,7 @@ struct OverViewListView: View {
             ScrollView {
                 Text("Expenses").font(.title3).fontWeight(.bold)
                 ForEach(overViewList.expenses) { expense in
-                    NavigationLink(value: expense.id) {
+                    NavigationLink(value: expense) {
                         VStack (alignment: .leading) {
                             Text(expense.title).font(.headline).fontWeight(.bold)
                             HStack{
