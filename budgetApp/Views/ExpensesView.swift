@@ -22,19 +22,20 @@ struct ExpensesView: View {
     
     var list: some View {
         List {
-            ScrollView {
-                ForEach(expenseList.expenses) { expense in
-                    NavigationLink(value: expense) {
-                        VStack (alignment: .leading) {
-                            Text(expense.title).font(.headline).fontWeight(.bold)
-                            HStack{
-                                Text("€ -\(expense.amount, specifier: "%.2f")")
-                                Spacer()
-                                Text("\(expense.createdAt.formatted(.dateTime.day().month().year()))")
-                            }
+            ForEach(expenseList.expenses) { expense in
+                NavigationLink(value: expense) {
+                    VStack (alignment: .leading) {
+                        Text(expense.title).font(.headline).fontWeight(.bold)
+                        HStack{
+                            Text("€ -\(expense.amount, specifier: "%.2f")")
+                            Spacer()
+                            Text("\(expense.createdAt!.formatted(.dateTime.day().month().year()))")
                         }
                     }
                 }
+            }
+            .onDelete { indexSet in
+                expenseList.delete(at: indexSet)
             }
         }
     }

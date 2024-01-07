@@ -7,6 +7,11 @@
 
 import SwiftUI
 
+enum TransactionType {
+    case expense
+    case income
+}
+
 struct ContentView: View {
     
     @ObservedObject var expenseList: ExpenseList
@@ -14,6 +19,7 @@ struct ContentView: View {
     @ObservedObject var overViewList: OverViewList
     
     @State var showForm: Bool = false
+    @State var typeForform: TransactionType?
     
     var body: some View {
         NavigationStack {
@@ -23,9 +29,11 @@ struct ContentView: View {
                     Menu("add", systemImage: "plus"){
                         Button("Add expense", systemImage: "eurosign") {
                             showForm = true
+                            typeForform = .expense
                         }
                         Button("Add income", systemImage: "eurosign.square"){
                             showForm = true
+                            typeForform = .income
                         }
                     }.foregroundStyle(.blue)
                 }.padding()
@@ -44,8 +52,9 @@ struct ContentView: View {
                                   systemImage: "eurosign.square")
                         }
                 }.navigationDestination(isPresented: $showForm){
-                    CreateForm(expenseList: expenseList)
+                    CreateForm(expenseList: expenseList, incomeList: incomeList, transactionType: typeForform ?? .expense)
                 }.navigationDestination(for: IncomeModel.Income.ID.self) { incomeId in
+                    //show income details
                     if let index = incomeList.incomes.firstIndex(where: { $0.id == incomeId }) {
                         TransactionDetailsView(transaction: $incomeList.incomes[index])
                     } else if let index = overViewList.incomes.firstIndex(where: { $0.id == incomeId }) {
@@ -53,6 +62,7 @@ struct ContentView: View {
                     }
                 }
                 .navigationDestination(for: ExpenseModel.Expense.self) { expense in
+                    //show expense details
                     if let index = expenseList.expenses.firstIndex(where: { $0.id == expense.id }) {
                         TransactionDetailsView(transaction: $expenseList.expenses[index])
                     } else if let index = overViewList.expenses.firstIndex(where: { $0.id == expense.id }) {

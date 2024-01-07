@@ -24,40 +24,40 @@ struct OverViewListView: View {
     
     var expenseList: some View {
         List {
-            ScrollView {
-                Text("Expenses").font(.title3).fontWeight(.bold)
-                ForEach(overViewList.expenses) { expense in
-                    NavigationLink(value: expense) {
-                        VStack (alignment: .leading) {
-                            Text(expense.title).font(.headline).fontWeight(.bold)
-                            HStack{
-                                Text("€ -\(expense.amount, specifier: "%.2f")")
-                                Spacer()
-                                Text("\(expense.createdAt.formatted(.dateTime.day().month().year()))")
-                            }
+            Text("Expenses").font(.title3).fontWeight(.bold)
+            ForEach(overViewList.expenses) { expense in
+                NavigationLink(value: expense) {
+                    VStack (alignment: .leading) {
+                        Text(expense.title).font(.headline).fontWeight(.bold)
+                        HStack{
+                            Text("€ -\(expense.amount, specifier: "%.2f")")
+                            Spacer()
+                            Text("\(expense.createdAt!.formatted(.dateTime.day().month().year()))")
                         }
                     }
                 }
+            }.onDelete { indexSet in
+                overViewList.deleteExpense(at: indexSet)
             }
         }
     }
     
     var incomeList: some View {
         List {
-            ScrollView {
-                Text("Income").font(.title3).fontWeight(.bold)
-                ForEach(overViewList.incomes) { income in
-                    NavigationLink(value: income.id) {
-                        VStack (alignment: .leading) {
-                            Text(income.title).font(.headline).fontWeight(.bold)
-                            HStack{
-                                Text("€ +\(income.amount, specifier: "%.2f")")
-                                Spacer()
-                                Text("\(income.createdAt.formatted(.dateTime.day().month().year()))")
-                            }
+            Text("Income").font(.title3).fontWeight(.bold)
+            ForEach(overViewList.incomes) { income in
+                NavigationLink(value: income.id) {
+                    VStack (alignment: .leading) {
+                        Text(income.title).font(.headline).fontWeight(.bold)
+                        HStack{
+                            Text("€ +\(income.amount, specifier: "%.2f")")
+                            Spacer()
+                            Text("\(income.createdAt!.formatted(.dateTime.day().month().year()))")
                         }
                     }
                 }
+            }.onDelete { indexSet in
+                overViewList.deleteIncome(at: indexSet)
             }
         }
     }

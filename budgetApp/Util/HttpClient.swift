@@ -42,13 +42,6 @@ class HttpClient {
         let decoder = JSONDecoder()
         decoder.dateDecodingStrategy = .iso8601
         
-        //TODO: Delete in prod - is er voor debug in case dat decoden zou failen
-        do {
-            try decoder.decode([T].self, from: data)
-        } catch {
-            print("E: \(error)")
-        }
-        
         guard let object = try? decoder.decode([T].self, from: data) else {
             throw HttpError.errorDecodingData
         }
@@ -66,13 +59,6 @@ class HttpClient {
         //geeft anders problemen met dates decoderen
         let decoder = JSONDecoder()
         decoder.dateDecodingStrategy = .iso8601
-        
-        //TODO: Delete in prod - is er voor debug in case dat decoden zou failen
-        do {
-            try decoder.decode(T.self, from: data)
-        } catch {
-            print("E: \(error)")
-        }
         
         guard let object = try? decoder.decode(T.self, from: data) else {
             throw HttpError.errorDecodingData
@@ -95,4 +81,15 @@ class HttpClient {
             throw HttpError.badResponse
         }
     }
+    
+    func delete(at id: UUID, url: URL) async throws {
+            var request = URLRequest(url: url)
+            request.httpMethod = HttpMethods.DELETE.rawValue
+            
+            let (_, response) = try await URLSession.shared.data(for: request)
+            
+            guard (response as? HTTPURLResponse)?.statusCode == 200 else {
+                throw HttpError.badResponse
+            }
+        }
 }

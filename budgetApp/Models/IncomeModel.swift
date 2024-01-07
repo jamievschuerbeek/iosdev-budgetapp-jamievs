@@ -12,9 +12,9 @@ struct IncomeModel {
     var incomes: [Income]
     
     struct Income: Identifiable, Codable {
-        var id: UUID
+        var id: UUID?
         var title: String
         var amount: Float
-        var createdAt: Date
+        var createdAt: Date?
     }
 }

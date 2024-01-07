@@ -29,6 +29,32 @@ class ExpenseList : ObservableObject {
         return total
     }
     
+    func delete(at offsets: IndexSet){
+        offsets.forEach { index in
+            guard let expenseId = expenseModel.expenses[index].id else{
+                return
+            }
+            guard let url = URL(string: "\(dataUrl)/expenses/\(expenseId)") else {
+                return
+            }
+            
+            Task {
+                do {
+                    try await HttpClient.shared.delete(at: expenseId, url: url)
+                } catch {
+                    print("Error deleting: \(error)")
+                }
+            }
+        }
+        expenseModel.expenses.remove(atOffsets: offsets)
+    }
+    
+    func add(title: String, amount: Float) async throws{
+        let expense = ExpenseModel.Expense(id: nil, title: title, amount: amount, createdAt: nil)
+        
+        try await addObject(urlPath: "expenses", object: expense)
+    }
+    
     //TODO: Deze niet meer gebruiken, vervangen door fetchExpensesWithDate
     func fetchExpenses() async throws {
         let response: [ExpenseModel.Expense] = try await fetchObject(urlPath: "expenses")

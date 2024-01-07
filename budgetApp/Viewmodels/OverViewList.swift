@@ -55,4 +55,45 @@ class OverViewList : ObservableObject {
             self.expenseModel.expenses = expenseResponse
         }
     }
+    
+    func deleteExpense(at offsets: IndexSet){
+        offsets.forEach { index in
+            guard let expenseId = expenseModel.expenses[index].id else {
+                return
+            }
+            guard let url = URL(string: "\(dataUrl)/expenses/\(expenseId)") else {
+                return
+            }
+            
+            Task {
+                do {
+                    try await HttpClient.shared.delete(at: expenseId, url: url)
+                } catch {
+                    print("Error deleting: \(error)")
+                }
+            }
+        }
+        expenseModel.expenses.remove(atOffsets: offsets)
+    }
+    
+    func deleteIncome(at offsets: IndexSet){
+        offsets.forEach { index in
+            guard let incomeId = incomes[index].id else {
+                return
+            }
+            guard let url = URL(string: "\(dataUrl)/incomes/\(incomeId)") else {
+                return
+            }
+            
+            Task {
+                do {
+                    try await HttpClient.shared.delete(at: incomeId, url: url)
+                } catch {
+                    print("Error deleting: \(error)")
+                }
+            }
+        }
+        
+        incomeModel.incomes.remove(atOffsets: offsets)
+    }
 }

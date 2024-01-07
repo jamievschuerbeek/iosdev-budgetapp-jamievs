@@ -12,7 +12,6 @@ struct TransactionDetailsView<T: Codable>: View {
     @Binding var transaction: T
     var income: IncomeModel.Income? {
         if transaction is IncomeModel.Income {
-            print("Welkom welkom1")
             return transaction as? IncomeModel.Income
         }
         return nil
@@ -20,7 +19,6 @@ struct TransactionDetailsView<T: Codable>: View {
     
     var expense: ExpenseModel.Expense? {
         if transaction is ExpenseModel.Expense {
-            print("Welkom welkom")
             return transaction as? ExpenseModel.Expense
         }
         return nil
@@ -29,16 +27,16 @@ struct TransactionDetailsView<T: Codable>: View {
     var body: some View {
         Form {
             if income != nil {
-                detailItem("Id", contentText: Text("\(income!.id)").font(.system(size: 14)))
+                //detailItem("Id", contentText: Text("\(income!.id.)").font(.system(size: 14)))
                 detailItem("Tile", contentText: Text("\(income!.title)"))
                 detailItem("amount", contentText: Text("€\(income!.amount, specifier: "%.2f")"))
-                detailItem("date", contentText: Text("\(income!.createdAt.formatted(.dateTime))"))
+                detailItem("date", contentText: Text("\(income!.createdAt!.formatted(.dateTime))"))
             }
             else {
-                detailItem("Id", contentText: Text("\(expense!.id)").font(.system(size: 14)))
+                //detailItem("Id", contentText: Text("\(expense!.id)").font(.system(size: 14)))
                 detailItem("Tile", contentText: Text("\(expense!.title)"))
                 detailItem("amount", contentText: Text("€\(expense!.amount, specifier: "%.2f")"))
-                detailItem("date", contentText: Text("\(expense!.createdAt.formatted(.dateTime))"))
+                detailItem("date", contentText: Text("\(expense!.createdAt!.formatted(.dateTime))"))
             }
         }.navigationTitle("Details")
     }

@@ -29,6 +29,7 @@
 		3CAF2C922B49D22D00247984 /* CreateForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CAF2C912B49D22D00247984 /* CreateForm.swift */; };
 		3CAF2C942B4AAC8600247984 /* CurrencyField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CAF2C932B4AAC8600247984 /* CurrencyField.swift */; };
 		3CAF2C962B4ABD6500247984 /* TransactionDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CAF2C952B4ABD6500247984 /* TransactionDetailsView.swift */; };
+		3CAF2C982B4AFBF300247984 /* addObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CAF2C972B4AFBF300247984 /* addObject.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +75,7 @@
 		3CAF2C912B49D22D00247984 /* CreateForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateForm.swift; sourceTree = "<group>"; };
 		3CAF2C932B4AAC8600247984 /* CurrencyField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyField.swift; sourceTree = "<group>"; };
 		3CAF2C952B4ABD6500247984 /* TransactionDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionDetailsView.swift; sourceTree = "<group>"; };
+		3CAF2C972B4AFBF300247984 /* addObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addObject.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -200,6 +202,7 @@
 			children = (
 				3C6EF8A22B40F261002B5CB1 /* HttpClient.swift */,
 				3CAF2C852B46FC9A00247984 /* fetchObject.swift */,
+				3CAF2C972B4AFBF300247984 /* addObject.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -336,6 +339,7 @@
 			files = (
 				3CAF2C842B46F3AB00247984 /* IncomeModel.swift in Sources */,
 				3CAF2C882B46FF9800247984 /* IncomesView.swift in Sources */,
+				3CAF2C982B4AFBF300247984 /* addObject.swift in Sources */,
 				3CAF2C922B49D22D00247984 /* CreateForm.swift in Sources */,
 				3CAF2C8C2B47873100247984 /* IncomeList.swift in Sources */,
 				3CAF2C902B4881C300247984 /* OverViewListView.swift in Sources */,

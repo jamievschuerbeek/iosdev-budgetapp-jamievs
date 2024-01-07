@@ -32,9 +32,31 @@ class IncomeList : ObservableObject {
         return total
     }
     
-    func delete(atOffset: IndexSet){
-        print(atOffset)
-        //Incomes.remove(atOffsets: atOffset)
+    func delete(at offsets: IndexSet){
+        offsets.forEach { index in
+            guard let incomeId = incomes[index].id else {
+                return
+            }
+            guard let url = URL(string: "\(dataUrl)/incomes/\(incomeId)") else {
+                return
+            }
+            
+            Task {
+                do {
+                    try await HttpClient.shared.delete(at: incomeId, url: url)
+                } catch {
+                    print("Error deleting: \(error)")
+                }
+            }
+        }
+        
+        incomeModel.incomes.remove(atOffsets: offsets)
+    }
+    
+    func add(title: String, amount: Float) async throws{
+        let income = Income(id: nil, title: title, amount: amount, createdAt: nil)
+        
+        try await addObject(urlPath: "incomes", object: income)
     }
     
     func fetchSingleIcome(id: UUID) async throws -> Income{
